@@ -114,31 +114,24 @@ function showPage(pId) {
 
 function checkAdminPassword() {
     const input = document.getElementById('passAdminInput').value;
-    
-    if(input === passwordAdmin) { // Passwordnya DUELIN2026
+    if(input === "DUELIN2026") {
         isAdmin = true;
-        
-        // Tampilkan layar penuh Dashboard
+        // Membuka Dashboard Fullscreen yang kita buat tadi
         document.getElementById('adminDashboard').style.display = 'block';
-        
-        // Isi data statistik dan monitor secara live
-        renderAdminDashboard();
-        
-        // Biar bracket bisa diedit di halaman Tournament
-        renderAll(); 
-        
-        alert("Akses Diterima, Bos!");
+        renderAdminDashboard(); 
+        renderAll();
+        alert("Akses Admin Diterima, Bos!");
     } else {
         alert("Password Salah!");
     }
 }
 
+// Tambahkan juga fungsi tutupnya
 function exitAdmin() {
     isAdmin = false;
     document.getElementById('adminDashboard').style.display = 'none';
-    document.getElementById('passAdminInput').value = '';
-    renderAll(); // Kunci lagi bracket-nya buat player
 }
+
 
 // Fungsi Isi Data Dashboard (Player Online dll)
 function renderAdminDashboard() {
