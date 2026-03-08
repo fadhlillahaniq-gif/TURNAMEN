@@ -1,0 +1,236 @@
+/* --- ROOT VARIABLE (WARNA UTAMA) --- */
+:root {
+    --main-red: #ff0000;
+    --neon-red: #ff3131;
+    --dark-black: #080808;
+    --gray-card: #151515;
+    --white: #ffffff;
+    --gold: #ffcc00;
+    --cyan: #00f2ff;
+    --neon-glow: 0 0 15px rgba(255, 49, 49, 0.6);
+}
+
+/* --- RESET & BASE --- */
+* { box-sizing: border-box; }
+body {
+    background-color: var(--dark-black);
+    color: var(--white);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding-bottom: 90px; /* Jarak biar gak ketutup nav bawah */
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- HEADER --- */
+header {
+    background: linear-gradient(180deg, #1a0000 0%, var(--dark-black) 100%);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--gold);
+    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.1);
+}
+
+.header-content {
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.menu-toggle { font-size: 1.3rem; cursor: pointer; color: var(--white); }
+
+/* --- SIDEBAR FIX (Pindah ke Kanan) --- */
+.sidebar {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 2000; 
+    top: 0; 
+    right: 0; /* Ganti dari left ke right */
+    background-color: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(10px);
+    overflow-x: hidden; 
+    transition: 0.4s; 
+    padding-top: 60px;
+    border-left: 2px solid var(--gold); /* Border pindah ke kiri sidebar */
+}
+
+/* Tombol Close juga pindahin biar gak tabrakan */
+.close-btn { 
+    position: absolute; 
+    top: 15px; 
+    left: 20px; /* Pindah ke kiri atas sidebar */
+    font-size: 30px; 
+    color: var(--main-red); 
+    text-decoration: none;
+}
+
+.sidebar-links a {
+    padding: 15px 25px; text-decoration: none; font-size: 1.1rem;
+    color: var(--white); display: block; border-bottom: 1px solid #222;
+}
+
+.sidebar-links a i { margin-right: 15px; color: var(--gold); }
+
+/* --- CONTAINER & LAYOUT --- */
+.container { max-width: 600px; margin: auto; padding: 20px; }
+.page { display: none; }
+.page.active { display: block; animation: fadeIn 0.4s ease; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.section-title {
+    text-align: center; font-weight: 900; font-size: 1.1rem;
+    color: var(--gold); margin: 30px 0 20px;
+    letter-spacing: 3px; text-transform: uppercase;
+}
+
+/* --- HOME: HUB GRID --- */
+.hub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.hub-card {
+    background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 15px; padding: 20px 10px; text-align: center;
+    transition: 0.3s; cursor: pointer;
+}
+
+.hub-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+
+.hub-card i { font-size: 2rem; color: var(--gold); margin-bottom: 10px; display: block; }
+.hub-card h3 { font-size: 0.85rem; margin: 5px 0; letter-spacing: 1px; }
+.hub-card p { font-size: 0.65rem; color: #777; margin: 0; }
+
+.double-icon { display: flex; justify-content: center; gap: -5px; margin-bottom: 10px; }
+.double-icon i { font-size: 1.5rem !important; margin: 0 -5px; }
+
+/* --- LIVE BOX --- */
+.live-box {
+    background: linear-gradient(90deg, #1a0000, #4a0000);
+    padding: 15px; border-radius: 12px; border-left: 4px solid var(--neon-red);
+}
+.live-box h4 { margin: 0; font-size: 0.9rem; color: #fff; }
+.live-box p { margin: 5px 0 0; font-size: 0.75rem; color: #ccc; }
+
+/* --- BRACKET STYLING --- */
+.bracket-wrapper { display: flex; gap: 20px; overflow-x: auto; padding: 10px 0; }
+.round { min-width: 140px; }
+.round-title { font-size: 0.7rem; color: var(--gold); text-align: center; margin-bottom: 10px; font-weight: bold; }
+.match-box { background: #111; border: 1px solid #333; border-radius: 6px; margin-bottom: 8px; }
+.team-slot { padding: 6px; border-bottom: 1px solid #222; }
+.team-slot:last-child { border-bottom: none; }
+.b-input { background: transparent; border: none; color: #fff; width: 100%; font-size: 0.7rem; outline: none; text-align: center; }
+
+/* --- PROFIL & ID CARD --- */
+#profileArea { background: #111; padding: 25px; border-radius: 20px; border: 1px solid #222; text-align: center; }
+.profile-icon-big { font-size: 4rem; color: #222; margin-bottom: 15px; }
+
+.input-box { margin-bottom: 10px; }
+.input-box input {
+    width: 100%; background: #000; border: 1px solid #333;
+    padding: 12px; border-radius: 10px; color: #fff; outline: none;
+}
+
+.btn-submit {
+    width: 100%; background: var(--gold); color: #000; border: none;
+    padding: 12px; border-radius: 10px; font-weight: bold; cursor: pointer;
+}
+
+.profile-card-display {
+    background: linear-gradient(135deg, #1a1a1a, #000);
+    border: 1px solid var(--gold); border-radius: 15px; padding: 20px; margin-bottom: 15px;
+}
+.profile-card-display h2 { margin: 0; color: var(--gold); font-size: 1.4rem; letter-spacing: 2px; }
+.profile-card-display p { margin: 5px 0; font-size: 0.8rem; color: #888; }
+.status-badge { font-size: 0.65rem; color: #00ff00; font-weight: bold; margin-top: 10px; }
+
+.btn-logout { background: transparent; border: 1px solid #444; color: #666; padding: 5px 15px; border-radius: 5px; cursor: pointer; }
+
+/* --- ADMIN ZONE (RAHASIA) --- */
+.admin-access-zone { margin-top: 40px; padding-top: 20px; border-top: 1px dashed #333; text-align: center; }
+.staff-text { font-size: 0.6rem; color: #333; letter-spacing: 2px; }
+.admin-login-mini { display: flex; gap: 5px; justify-content: center; margin-bottom: 15px; }
+.admin-login-mini input { background: #000; border: 1px solid #222; color: #fff; padding: 5px; border-radius: 5px; width: 100px; font-size: 0.7rem; }
+.admin-login-mini button { background: #333; color: #fff; border: none; padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; }
+
+.admin-card { background: #0a0a0a; border: 1px solid var(--cyan); padding: 15px; border-radius: 12px; }
+.admin-card h4 { margin: 0 0 10px; color: var(--cyan); font-size: 0.8rem; }
+.admin-grid-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.admin-grid-btns button { background: #111; border: 1px solid #444; color: #fff; padding: 8px; border-radius: 6px; font-size: 0.65rem; cursor: pointer; }
+.admin-grid-btns button:hover { border-color: var(--cyan); color: var(--cyan); }
+
+/* --- BOTTOM NAV --- */
+.bottom-nav {
+    position: fixed; bottom: 0; left: 0; right: 0; height: 70px;
+    background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px);
+    display: flex; justify-content: space-around; align-items: center;
+    border-top: 1px solid #222; z-index: 1000;
+}
+.nav-item { text-align: center; color: #666; font-size: 0.65rem; transition: 0.3s; cursor: pointer; }
+.nav-item i { font-size: 1.2rem; display: block; margin-bottom: 4px; }
+.nav-item.active { color: var(--gold); }
+
+/* --- SHOP CARD --- */
+.fa-coins {
+    animation: goldGlow 2s infinite alternate;
+}
+
+@keyframes goldGlow {
+    from { filter: drop-shadow(0 0 2px var(--gold)); }
+    to { filter: drop-shadow(0 0 10px var(--gold)); transform: scale(1.05); }
+}
+.shop-card { background: #111; padding: 20px; border-radius: 15px; border: 1px solid #222; text-align: center; }
+.btn-buy { width: 100%; background: var(--cyan); border: none; padding: 10px; border-radius: 8px; font-weight: bold; margin-top: 10px; }
+/* Container Auth & Profile */
+.auth-container, .profile-container {
+    background: #111;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #222;
+}
+
+/* Kartu Member Sultan */
+.profile-card-display {
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    border: 2px solid var(--gold);
+    border-radius: 15px;
+    padding: 30px 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.card-chip {
+    width: 40px;
+    height: 30px;
+    background: linear-gradient(135deg, #ffd700, #b8860b);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.profile-card-display h2 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.profile-card-display p {
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 3px;
+    margin: 10px 0;
+}

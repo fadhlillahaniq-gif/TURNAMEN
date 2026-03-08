@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Turnamen Online, Mobile Legends, E-sport Indonesia, Gold Bar">
+    <meta name="description" content="DUEL.IN - Platform turnamen E-Sport elit. Daftar sekarang, menangkan turnamen, dan kumpulkan Gold Bar sebanyak-banyaknya!">
+    <title>DUEL.IN - E-Sports Arena</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1>DUEL<span style="color: var(--gold);">.IN</span></h1>
+            </div>
+            <div class="menu-toggle" onclick="toggleSidebar()">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </div>
+        </div>
+    </header>
+
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="toggleSidebar()">&times;</a>
+        <div class="sidebar-links">
+            <a href="#" onclick="showPage('home')"><i class="fa-solid fa-house"></i> HOME</a>
+            <a href="#" onclick="showPage('pageTournament')"><i class="fa-solid fa-trophy"></i> TOURNAMENT</a>
+            <a href="#" onclick="showPage('pageShop')"><i class="fa-solid fa-gem"></i> DIAMOND SHOP</a>
+            <a href="#" onclick="showPage('pageProfil')"><i class="fa-solid fa-user"></i> MY PROFILE</a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <section id="home" class="page active">
+            <div class="welcome-header">
+                <h2>HELLO, CHALLENGERS!</h2>
+                <p>Siap mendominasi malam ini?</p>
+            </div>
+
+            <div class="hub-grid">
+                <div class="hub-card tournament-card" onclick="showPage('pageTournament')">
+                    <i class="fa-solid fa-trophy"></i>
+                    <h3>TOURNAMENT</h3>
+                    <p>Event Resmi Admin</p>
+                </div>
+
+                <div class="hub-card duel-card" onclick="alert('Duel Resmi Segera Hadir!')">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <h3>DUEL 1VS1</h3>
+                    <p>Adu Mekanik Resmi</p>
+                </div>
+
+                <div class="hub-card custom-tour-card" onclick="alert('Fitur Custom Tour Segera Hadir!')">
+                    <div class="double-icon">
+                        <i class="fa-solid fa-users"></i>
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3>CUSTOM TOUR</h3>
+                    <p>Ajak Tim Lain Scrim</p>
+                </div>
+
+                <div class="hub-card custom-duel-card" onclick="alert('Fitur Custom Duel Segera Hadir!')">
+                    <i class="fa-solid fa-user-ninja"></i>
+                    <h3>CUSTOM DUEL</h3>
+                    <p>Tantang By One Bebas</p>
+                </div>
+            </div>
+
+            <div class="info-box live-box" onclick="window.open('https://youtube.com', '_blank')" style="cursor: pointer; margin-top: 20px;">
+                <h4><i class="fa-brands fa-youtube"></i> LIVE STREAMING</h4>
+                <p>Nonton keseruan Match & Challenge malam ini!</p>
+            </div>
+        </section>
+
+        <section id="pageTournament" class="page">
+            <div class="section-title">BRACKET & JADWAL</div>
+            <div id="activeList">
+                </div>
+            <div class="section-title" style="margin-top: 40px; font-size: 0.9rem; opacity: 0.5;">FINISHED TOURNAMENT</div>
+            <div id="finishedList">
+                </div>
+        </section>
+
+<section id="pageShop" class="page">
+    <div class="section-title">GOLD BAR STORE</div>
+    <div class="hub-grid">
+        <div class="shop-card" style="border-color: var(--gold);">
+            <i class="fa-solid fa-coins" style="color: var(--gold); font-size: 2.5rem; filter: drop-shadow(0 0 5px rgba(255,204,0,0.5));"></i>
+            <h4 style="margin-top:15px;">100 GOLD BAR</h4>
+            <p>Starter Pack</p>
+            <button class="btn-buy" style="background: var(--gold); color: #000;" onclick="buyItem('100 Gold Bar', 'Voucher')">BELI</button>
+        </div>
+        <div class="shop-card" style="border-color: var(--gold);">
+            <i class="fa-solid fa-coins" style="color: var(--gold); font-size: 2.5rem; filter: drop-shadow(0 0 5px rgba(255,204,0,0.5));"></i>
+            <h4 style="margin-top:15px;">500 GOLD BAR</h4>
+            <p>Pro Pack</p>
+            <button class="btn-buy" style="background: var(--gold); color: #000;" onclick="buyItem('500 Gold Bar', 'Voucher')">BELI</button>
+        </div>
+    </div>
+</section>
+
+<section id="pageProfil" class="page">
+    <div class="section-title">MEMBER AREA</div>
+
+    <div id="unregisteredProfile">
+        <div class="auth-box" style="background: #111; padding: 20px; border-radius: 15px; border: 1px solid #222;">
+            <i class="fa-solid fa-circle-user" style="font-size: 3rem; color: #222; display: block; text-align: center; margin-bottom: 15px;"></i>
+            
+            <div class="input-box" style="margin-bottom: 10px;">
+                <input type="text" id="regNickname" placeholder="Nickname Game" style="width: 100%; background: #000; border: 1px solid #333; color: #fff; padding: 12px; border-radius: 8px;">
+            </div>
+            
+            <div class="input-box" style="margin-bottom: 20px;">
+                <input type="number" id="regWA" placeholder="Nomor WA (ID Login)" style="width: 100%; background: #000; border: 1px solid #333; color: #fff; padding: 12px; border-radius: 8px;">
+            </div>
+
+            <button class="btn-submit" onclick="saveProfile()" style="width: 100%; background: var(--gold); color: #000; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer;">
+                DAFTAR / BUAT ID
+            </button>
+
+            <p style="text-align: center; font-size: 0.7rem; color: #555; margin-top: 15px;">
+                Sudah punya akun? <br>
+                <button onclick="const p = prompt('Masukkan Password:'); loginProcess(document.getElementById('regWA').value, p)" style="background: none; border: none; color: var(--gold); cursor: pointer; font-weight: bold; margin-top: 5px;">
+                    KLIK LOGIN DI SINI
+                </button>
+            </p>
+        </div>
+    </div>
+
+    <div id="registeredProfile" style="display: none;">
+        <div class="profile-card-display" style="background: linear-gradient(135deg, #1a1a1a, #000); border: 1px solid var(--gold); padding: 25px; border-radius: 15px; text-align: center;">
+            <div style="width: 40px; height: 25px; background: var(--gold); border-radius: 4px; margin-bottom: 15px; opacity: 0.8;"></div>
+            <h2 id="userDisplayName" style="color: var(--gold); margin: 0; letter-spacing: 2px;">PLAYER NAME</h2>
+            <p id="userDisplayWA" style="color: #666; font-family: monospace; margin: 10px 0;">ID: D-IN0000</p>
+            <div style="color: #00ff00; font-size: 0.7rem; font-weight: bold;">● ONLINE STATUS</div>
+        </div>
+        <button class="btn-logout" onclick="logoutProfile()" style="width: 100%; margin-top: 15px; background: transparent; border: 1px solid #333; color: #555; padding: 10px; border-radius: 8px; cursor: pointer;">
+            KELUAR AKUN
+        </button>
+    </div>
+
+    <div id="loginInputArea" class="admin-access-zone" style="margin-top: 50px; border-top: 1px dashed #222; padding-top: 20px; text-align: center;">
+        <p style="font-size: 0.6rem; color: #333; letter-spacing: 2px;">STAFF ONLY ACCESS</p>
+        <div style="display: flex; justify-content: center; gap: 5px; margin-top: 10px;">
+            <input type="password" id="passAdminInput" placeholder="Password" style="background: #000; border: 1px solid #222; color: #444; padding: 5px; border-radius: 4px; width: 100px; font-size: 0.7rem;">
+            <button onclick="checkAdminPassword()" style="background: #222; color: #fff; border: none; padding: 5px 10px; border-radius: 4px; font-size: 0.7rem; cursor: pointer;">
+                AKSES
+            </button>
+        </div>
+    </div>
+</section>
+
+<section id="adminDashboard" class="page-admin-full" style="display: none;">
+    <div class="admin-header">
+        <div onclick="exitAdmin()" class="exit-btn"><i class="fa-solid fa-arrow-left"></i> KELUAR</div>
+        <h2>🛡️ COMMAND CENTER</h2>
+        <div class="status-dot">LIVE</div>
+    </div>
+
+    <div class="admin-stats-grid">
+        <div class="stat-box">
+            <span id="statOnline">0</span>
+            <p>Player Online</p>
+        </div>
+        <div class="stat-box">
+            <span id="statTotalUser">0</span>
+            <p>Total Member</p>
+        </div>
+    </div>
+
+    <div class="admin-actions">
+        <button onclick="adminCreateTournament()" class="main-action"><i class="fa-solid fa-plus"></i> BUAT TURNAMEN BARU</button>
+        <button onclick="triggerUpload()" class="main-action"><i class="fa-solid fa-image"></i> GANTI POSTER</button>
+    </div>
+
+    <div class="monitor-section">
+        <h3><i class="fa-solid fa-eye"></i> MONITOR AKTIVITAS PLAYER</h3>
+        <div id="monitorTable" class="monitor-table"></div>
+    </div>
+</section>
+
+    </div> <nav class="bottom-nav">
+        <div class="nav-item active" onclick="showPage('home')">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </div>
+        <div class="nav-item" onclick="showPage('pageTournament')">
+            <i class="fa-solid fa-trophy"></i>
+            <span>Bracket</span>
+        </div>
+        <div class="nav-item" onclick="showPage('pageShop')">
+            <i class="fa-solid fa-gem"></i>
+            <span>Shop</span>
+        </div>
+        <div class="nav-item" onclick="showPage('pageProfil')">
+            <i class="fa-solid fa-user"></i>
+            <span>Profile</span>
+        </div>
+    </nav>
+    <script src="script.js"></script>
+
+</body>
+</html>
